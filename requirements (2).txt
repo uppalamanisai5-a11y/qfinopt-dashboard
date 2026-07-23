@@ -8,3 +8,4 @@ scipy
 yfinance
 pennylane
 openpyxl
+gdown
