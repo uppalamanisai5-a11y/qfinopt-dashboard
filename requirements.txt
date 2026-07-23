@@ -10,3 +10,4 @@ pennylane
 openpyxl
 gdown
 fpdf2
+plotly
