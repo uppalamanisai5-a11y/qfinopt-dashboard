@@ -9,3 +9,4 @@ yfinance
 pennylane
 openpyxl
 gdown
+fpdf2
