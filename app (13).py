@@ -117,13 +117,15 @@ def get_market_news():
 
 @st.cache_data
 def load_historical():
-    """Load historical dataset from Google Drive"""
+    """Load historical dataset from Google Drive (large-file safe)"""
+    import gdown, os
     file_id = "1EfNv54tjvjcsJdZhxYwa4zPJxl9q9_9X"
-    url     = f"https://drive.google.com/uc?id={file_id}"
-    df      = pd.read_csv(url)
+    local_path = "qfinopt_cleaned.csv"
+    if not os.path.exists(local_path):
+        gdown.download(id=file_id, output=local_path, quiet=False)
+    df = pd.read_csv(local_path)
     df["Date"] = pd.to_datetime(df["Date"])
     return df
-
 # ══════════════════════════════════════
 # LOAD ALL DATA
 # ══════════════════════════════════════
